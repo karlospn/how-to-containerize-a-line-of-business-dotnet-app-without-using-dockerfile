@@ -4,11 +4,25 @@
 	<TargetFramework>net7.0</TargetFramework>
 	<ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
+	
+  <PropertyGroup>
+	<RuntimeIdentifier>linux-x64</RuntimeIdentifier>
+	<PublishProfile>DefaultContainer</PublishProfile>
+	<SelfContained>true</SelfContained>
+	<PublishTrimmed>true</PublishTrimmed>
+	<ContainerBaseImage>823934831816.dkr.ecr.eu-west-1.amazonaws.com/runtime-deps:7.0-bullseye-slim-1.0.0</ContainerBaseImage>
+	<ContainerImageTags>latest</ContainerImageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+	<ContainerPort Include="8080" Type="tcp" />
+  </ItemGroup>
 
   <ItemGroup>
 	  <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
 	  <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
 	  <PackageReference Include="MyOwn.EmailService" Version="1.0.0" />
+	  <PackageReference Include="Microsoft.NET.Build.Containers" Version="0.3.0-alpha.16" />
   </ItemGroup>
 
   <ItemGroup>

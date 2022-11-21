@@ -10,6 +10,7 @@
 	<PublishProfile>DefaultContainer</PublishProfile>
 	<SelfContained>true</SelfContained>
 	<PublishTrimmed>true</PublishTrimmed>
+	<ContainerImageName>bookstore-webapi</ContainerImageName>
 	<ContainerBaseImage>823934831816.dkr.ecr.eu-west-1.amazonaws.com/runtime-deps:7.0-bullseye-slim-1.0.0</ContainerBaseImage>
 	<ContainerImageTags>latest</ContainerImageTags>
   </PropertyGroup>

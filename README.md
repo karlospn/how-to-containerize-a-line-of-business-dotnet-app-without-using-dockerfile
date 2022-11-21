@@ -18,7 +18,7 @@ The repository contains:
 
 # **How to run it**
 
-## **Important**: You WON'T be able to execute the api and neither to build a container using the Dockerfile.
+> **Important**: **You WON'T be able to execute the api and neither to build a container using the Dockerfile.**
 
 ### **Why is that?**
 

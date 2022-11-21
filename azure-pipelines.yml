@@ -1,0 +1,35 @@
+trigger: none
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  awsAccount: '823934831816'
+  region: 'eu-west-1'
+
+steps:
+- task: UseDotNet@2
+  displayName: 'Install .NET Core sdk 7.x'
+  inputs:
+    packageType: 'sdk'
+    version: '7.x'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Restore packages'
+  inputs:
+    command: 'restore'
+    projects: '**/*.csproj'
+    feedsToUse: 'select'
+    vstsFeed: 'a4c874c8-2ab9-4a3a-aa79-6f007f55ee6f'
+    
+- task: AWSShellScript@1
+  displayName: 'Build container and publish to AWS ECR'
+  inputs:
+    awsCredentials: 'aws-dev'
+    regionName: '$(region)'
+    scriptType: 'inline'
+    inlineScript: |
+      aws ecr get-login-password --region $(region) | docker login --username AWS --password-stdin $(awsAccount).dkr.ecr.$(region).amazonaws.com
+      dotnet publish $(Build.SourcesDirectory)/src/BookStore.WebApi/BookStore.WebApi.csproj --no-restore
+      docker tag bookstore-webapi:latest $(awsAccount).dkr.ecr.$(region).amazonaws.com/bookstore.webapi:latest
+      docker push $(awsAccount).dkr.ecr.$(region).amazonaws.com/bookstore.webapi:latest

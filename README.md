@@ -21,18 +21,15 @@ The repository contains:
 
 ### **Why is that?**
 
-I didn't want to try the container support feature with a simple app that uses a simple ``Dockerfile``, instead of that I tried to emulate a more realistic line of business .NET application with a more complex ``Dockerfile``.
+I didn't want to try this feature with a dummy app that uses a simple ``Dockerfile``, instead of that I tried to emulate a more realistic line of business .NET application with a more complex ``Dockerfile``.
 
-**And what that really means?**
+**What that really means?**
 
-One of the things I wanted to test is how the container support feature works when the app uses some private resources, that's why you won't be able to execute it, because the app and the Dockerfile contains a few private resources.
+One of the things I wanted to test is how the .NET 7 SDK container support works when the app needs some private resources, that's why you won't be able to execute the API because the app and the Dockerfile contains a pair of private resources.
 
 To be more precise:
-
 - The app has a few references to private packages hosted on my private Azure DevOps feed.
-
-- The ``Dockerfile`` uses a pair of private images as base images. Those images are hosted on my private ECR repository.
-Using a platform image instead of using directly the public Microsoft images is a good security practice and also quite common in the enterprise.
+- The ``Dockerfile`` uses a pair of private images as base images. Those images are hosted on my private ECR repository. Using a platform image instead of using directly the public Microsoft images is a good security practice and also quite common in the enterprise.
 
 ### **What can I do with this repository?**
 

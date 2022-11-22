@@ -9,11 +9,10 @@ I don't want to try this feature with a "Hello World" .NET app, I know that it w
 
 The repository contains:
 
-- A .NET 7 BookStore API. It allows us to do the following actions:
-  - The functionality of this API is not important.
+- A .NET 7 BookStore API.
 - A ``Dockerfile``. 
   - This ``Dockerfile`` will be the starting point from where to migrate to a "docker-less" app that uses the container support for .NET 7 SDK instead of the ``Dockerfile``.
-  - The end result can be found on the ``src/BookStore.WebApi/BookStore.WebApi.csproj`` file.
+  - You can take a look at the end result on the ``src/BookStore.WebApi/BookStore.WebApi.csproj`` file.
 - An ``azure-pipelines.yml`` file that shows how to build a CI/CD pipeline that can create a container image and deploy it into a private ``AWS ECR`` repository using the container support for .NET 7 SDK.
 
 # **How to run it**

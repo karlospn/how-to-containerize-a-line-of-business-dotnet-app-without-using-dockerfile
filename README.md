@@ -3,7 +3,7 @@
 A few months ago the built-in container support in the .NET 7 SDK was announced.
 This feature allows us to create containerized versions of our applications just using the ``dotnet publish`` command and without the need of having a Dockerfile. 
 
-I don't want to try this feature with a "Hello World" .NET app, I know that it works well with it, instead let's try it with a more realistic .NET line of business application that uses a more complex ``Dockerfile`` and see how it performs.
+I don't want to try this feature with a "Hello World" .NET app, I know that it works well with it,  instead let's try to migrate from an app that uses a rather "complex" Dockerfile  to a "docker-less" app that uses the container support to create the application container image.
 
 # **Repository Content**
 
@@ -11,9 +11,9 @@ The repository contains:
 
 - A .NET 7 BookStore API.
 - A ``Dockerfile``. 
-  - This ``Dockerfile`` will be the starting point from where to migrate to a "docker-less" app that uses the container support for .NET 7 SDK instead of the ``Dockerfile``.
+  - This ``Dockerfile`` will be the starting point from where to migrate to a "docker-less" app that uses the container support for .NET 7 SDK.
   - You can take a look at the end result on the ``src/BookStore.WebApi/BookStore.WebApi.csproj`` file.
-- An ``azure-pipelines.yml`` file that shows how to build a CI/CD pipeline that can create a container image and deploy it into a private ``AWS ECR`` repository using the container support for .NET 7 SDK.
+- A ``azure-pipelines.yml`` file, it shows how to build a CI/CD pipeline that uses the container support to create an image and deploy it into a private ``AWS ECR`` repository.
 
 # **How to run it**
 

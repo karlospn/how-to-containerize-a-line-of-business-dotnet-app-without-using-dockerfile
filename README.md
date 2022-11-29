@@ -1,9 +1,10 @@
 # **Trying out the built-in container support for the .NET 7 SDK**
 
-A few months ago the built-in container support in the .NET 7 SDK was announced.
-This feature allows us to create containerized versions of our applications just using the ``dotnet publish`` command and without the need of having a Dockerfile. 
+A few months ago, the built-in container support for the .NET SDK was announced.   
+This feature allows us to containerize our application using the ``dotnet publish`` command, with no need of having to write a  ``Dockerfile``.
 
-I don't want to try this feature with a "Hello World" .NET app, I know that it works well with it,  instead let's try to migrate from an app that uses a rather "complex" Dockerfile  to a "docker-less" app that uses the container support to create the application container image.
+I've been wanting to try this new feature for quite a while, but I don't want to use it with a simple "Hello World" .NET app, because I know that it will work well with it.    
+Instead, **I decided that I'll try to migrate an app that has a rather "complex" ``Dockerfile`` to a new version that has no ``Dockerfile`` and instead uses the built-in container support feature**.
 
 # **Repository Content**
 
@@ -11,13 +12,14 @@ The repository contains:
 
 - A .NET 7 BookStore API.
 - A ``Dockerfile``. 
-  - This ``Dockerfile`` will be the starting point from where to migrate to a "docker-less" app that uses the container support for .NET 7 SDK.
+  - This ``Dockerfile`` will be the starting point from where to migrate to a "dockerfile-less" app that uses the container support for .NET 7 SDK.
   - You can take a look at the end result on the ``src/BookStore.WebApi/BookStore.WebApi.csproj`` file.
-- A ``azure-pipelines.yml`` file, it shows how to build a CI/CD pipeline that uses the container support to create an image and deploy it into a private ``AWS ECR`` repository.
+- An ``azure-pipelines.yml`` file.
+  - It shows how to build a CI/CD pipeline that uses the container support for .NET SDK to create an image and deploy it into a private ``AWS ECR`` repository.
 
 # **How to run it**
 
-> **Important**: **You WON'T be able to execute the api and neither to build a container using the Dockerfile.**
+> **Important**: **You WON'T be able to execute the app from this repository and neither to build a container using the Dockerfile.**
 
 ### **Why is that?**
 
@@ -25,11 +27,11 @@ I didn't want to try this feature with a dummy app that uses a simple ``Dockerfi
 
 **What that really means?**
 
-One of the things I wanted to test is how the .NET 7 SDK container support works when the app needs some private resources, that's why you won't be able to execute the API because the app and the Dockerfile contains a pair of private resources.
+One of the things I wanted to test is how the .NET SDK container support works when the app needs some private resources, that's why you won't be able to execute the API because the app and the Dockerfile contains a few private references.
 
 To be more precise:
-- The app has a few references to private packages hosted on my private Azure DevOps feed.
-- The ``Dockerfile`` uses a pair of private images as base images. Those images are hosted on my private ECR repository. Using a platform image instead of using directly the public Microsoft images is a good security practice and also quite common in the enterprise.
+- The app references a few private packages hosted on my private ``Azure DevOps`` feed.
+- The ``Dockerfile`` uses a 2 private images as base images. Those images are hosted on my private ``AWS ECR`` repository. 
 
 ### **What can I do with this repository?**
 

@@ -35,5 +35,5 @@ To be more precise:
 
 ### **What can I do with this repository?**
 
-Not much, this repository is for support of my blog post.
-- Here's the link to my post: NOT-AVAILABLE-YET.
+Not much, this repository is for support of my blog post. Here's the link to my post: 
+- https://www.mytechramblings.com/posts/trying-out-the-built-in-container-support-for-the-dotnet-7-sdk/
